@@ -1,13 +1,13 @@
 {
   "id": "modflow-2005",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Run an non-interactive script on TACC using docker.",
   "owner": "${apiUserId}",
   "enabled": true,
   "runtime": "SINGULARITY",
   "runtimeVersion": null,
   "runtimeOptions": ["SINGULARITY_RUN"],
-  "containerImage": "docker://ghcr.io/mosoriob/cookbook-modflow:0.0.3",
+  "containerImage": "docker://ghcr.io/mosoriob/cookbook-modflow:0.0.4",
   "jobType": "BATCH",
   "maxJobs": -1,
   "maxJobsPerUser": -1,
@@ -59,7 +59,7 @@
     "fileInputs": [
       {
         "name": "BAS 6",
-        "description": "Contains the billing data to be processed",
+        "description": "Basic Package Input for the Groundwater Flow Process",
         "inputMode": "REQUIRED",
         "autoMountLocal": true,
         "sourceUrl": null,
@@ -67,7 +67,7 @@
       },
       {
         "name": "DIS",
-        "description": "Contains the billing data to be processed",
+        "description": "Discretization file",
         "inputMode": "REQUIRED",
         "autoMountLocal": true,
         "sourceUrl": null,
@@ -75,7 +75,7 @@
       },
       {
         "name": "BCF 6",
-        "description": "Contains the billing data to be processed",
+        "description": "Block centered flow package file",
         "inputMode": "REQUIRED",
         "autoMountLocal": true,
         "sourceUrl": null,
@@ -83,31 +83,31 @@
       },
       {
         "name": "OC",
-        "description": "Contains the billing data to be processed",
+        "description": "Output control file",
         "inputMode": "REQUIRED",
         "autoMountLocal": true,
         "sourceUrl": null,
-        "targetPath": "input.oc"
+        "targetPath": "input.dat"
       },
       {
         "name": "WEL",
-        "description": "Contains the billing data to be processed",
+        "description": "Well file",
         "inputMode": "REQUIRED",
         "autoMountLocal": true,
         "sourceUrl": null,
-        "targetPath": "input.wel"
+        "targetPath": "input.dat"
       },
       {
         "name": "DRN",
-        "description": "Contains the billing data to be processed",
+        "description": "Drain package file",
         "inputMode": "REQUIRED",
         "autoMountLocal": true,
         "sourceUrl": null,
-        "targetPath": "input.drn"
+        "targetPath": "input.dat"
       },
       {
         "name": "HFB 6",
-        "description": "Contains the billing data to be processed",
+        "description": "Horizontal flow barrier file",
         "inputMode": "REQUIRED",
         "autoMountLocal": true,
         "sourceUrl": null,
@@ -115,19 +115,19 @@
       },
       {
         "name": "SIP",
-        "description": "Contains the billing data to be processed",
+        "description": "Strongly Implicit Procedure package file",
         "inputMode": "REQUIRED",
         "autoMountLocal": true,
         "sourceUrl": null,
-        "targetPath": "input.sip"
+        "targetPath": "input.dat"
       },
       {
         "name": "RCH",
-        "description": "Contains the billing data to be processed",
+        "description": "Recharge file",
         "inputMode": "REQUIRED",
         "autoMountLocal": true,
         "sourceUrl": null,
-        "targetPath": "input.rch"
+        "targetPath": "input.dat"
       }
     ],
     "fileInputArrays": [],
