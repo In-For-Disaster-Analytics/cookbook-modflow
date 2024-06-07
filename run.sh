@@ -13,15 +13,15 @@ INPUTS_DIR=${_tapisExecSystemInputDir}
 OUTPUTS_DIR=${_tapisExecSystemOutputDir}
 NAM=${OUTPUTS_DIR}/tmp.nam
 
-BAS6=$(basename $1)
-DIS=$(basename $2)
-BCF6=$(basename $3)
-OC=$(basename $4)
-WEL=$(basename $5)
-DRN=$(basename $6)
-RCH=$(basename $7)
-HFB6=$(basename $8)
-SIP=$(basename $9)
+BAS6=$(basename ${INPUTS_DIR}/input.ba6)
+DIS=$(basename ${INPUTS_DIR}/input.dis)
+BCF6=$(basename ${INPUTS_DIR}/input.bc6)
+OC=$(basename ${INPUTS_DIR}/input.oc)
+WEL=$(basename ${INPUTS_DIR}/input.wel)
+DRN=$(basename ${INPUTS_DIR}/input.drn)
+RCH=$(basename ${INPUTS_DIR}/input.rch)
+HFB6=$(basename ${INPUTS_DIR}/input.hf6)
+SIP=$(basename ${INPUTS_DIR}/input.sip)
 
 echo "## MODFLOW-2005 name-file" >> $NAM
 echo "LIST    7    LST" >> $NAM
