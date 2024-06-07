@@ -11,8 +11,7 @@ fi
 
 INPUTS_DIR=${_tapisExecSystemInputDir}
 OUTPUTS_DIR=${_tapisExecSystemOutputDir}
-NAM=$INPUTS_DIR/tmp.nam
-BASEDIR=`dirname $0`
+NAM=${OUTPUTS_DIR}/tmp.nam
 
 BAS6=$(basename $1)
 DIS=$(basename $2)
