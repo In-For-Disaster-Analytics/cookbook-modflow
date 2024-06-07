@@ -1,13 +1,13 @@
 {
   "id": "modflow-2005",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Run an non-interactive script on TACC using docker.",
   "owner": "${apiUserId}",
   "enabled": true,
   "runtime": "SINGULARITY",
   "runtimeVersion": null,
   "runtimeOptions": ["SINGULARITY_RUN"],
-  "containerImage": "docker://ghcr.io/mosoriob/cookbook-modflow:0.0.2",
+  "containerImage": "docker://ghcr.io/mosoriob/cookbook-modflow:0.0.3",
   "jobType": "BATCH",
   "maxJobs": -1,
   "maxJobsPerUser": -1,
@@ -120,6 +120,14 @@
         "autoMountLocal": true,
         "sourceUrl": null,
         "targetPath": "input.sip"
+      },
+      {
+        "name": "RCH",
+        "description": "Contains the billing data to be processed",
+        "inputMode": "REQUIRED",
+        "autoMountLocal": true,
+        "sourceUrl": null,
+        "targetPath": "input.rch"
       }
     ],
     "fileInputArrays": [],
