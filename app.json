@@ -1,6 +1,6 @@
 {
   "id": "modflow-2005",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "Run an non-interactive script on TACC using docker.",
   "owner": "${apiUserId}",
   "enabled": true,
@@ -58,7 +58,7 @@
     },
     "fileInputs": [
       {
-        "name": "BAS 6",
+        "name": "bas6",
         "description": "Basic Package Input for the Groundwater Flow Process",
         "inputMode": "REQUIRED",
         "autoMountLocal": true,
@@ -66,7 +66,7 @@
         "targetPath": "input.ba6"
       },
       {
-        "name": "DIS",
+        "name": "dis",
         "description": "Discretization file",
         "inputMode": "REQUIRED",
         "autoMountLocal": true,
@@ -74,7 +74,7 @@
         "targetPath": "input.dis"
       },
       {
-        "name": "BCF 6",
+        "name": "bcf6",
         "description": "Block centered flow package file",
         "inputMode": "REQUIRED",
         "autoMountLocal": true,
@@ -82,31 +82,31 @@
         "targetPath": "input.bc6"
       },
       {
-        "name": "OC",
+        "name": "oc",
         "description": "Output control file",
         "inputMode": "REQUIRED",
         "autoMountLocal": true,
         "sourceUrl": null,
-        "targetPath": "input.dat"
+        "targetPath": "input.oc"
       },
       {
-        "name": "WEL",
+        "name": "wel",
         "description": "Well file",
         "inputMode": "REQUIRED",
         "autoMountLocal": true,
         "sourceUrl": null,
-        "targetPath": "input.dat"
+        "targetPath": "input.wel"
       },
       {
-        "name": "DRN",
+        "name": "drn",
         "description": "Drain package file",
         "inputMode": "REQUIRED",
         "autoMountLocal": true,
         "sourceUrl": null,
-        "targetPath": "input.dat"
+        "targetPath": "input.drn"
       },
       {
-        "name": "HFB 6",
+        "name": "hfb6",
         "description": "Horizontal flow barrier file",
         "inputMode": "REQUIRED",
         "autoMountLocal": true,
@@ -114,20 +114,20 @@
         "targetPath": "input.hf6"
       },
       {
-        "name": "SIP",
+        "name": "sip",
         "description": "Strongly Implicit Procedure package file",
         "inputMode": "REQUIRED",
         "autoMountLocal": true,
         "sourceUrl": null,
-        "targetPath": "input.dat"
+        "targetPath": "input.sip"
       },
       {
-        "name": "RCH",
+        "name": "rch",
         "description": "Recharge file",
         "inputMode": "REQUIRED",
         "autoMountLocal": true,
         "sourceUrl": null,
-        "targetPath": "input.dat"
+        "targetPath": "input.rch"
       }
     ],
     "fileInputArrays": [],
