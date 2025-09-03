@@ -13,35 +13,102 @@ INPUTS_DIR=${_tapisExecSystemInputDir}
 OUTPUTS_DIR=${_tapisExecSystemOutputDir}
 NAM=${OUTPUTS_DIR}/tmp.nam
 
-BAS6=$(basename ${INPUTS_DIR}/input.ba6)
-DIS=$(basename ${INPUTS_DIR}/input.dis)
-BCF6=$(basename ${INPUTS_DIR}/input.bc6)
-OC=$(basename ${INPUTS_DIR}/input.oc)
-WEL=$(basename ${INPUTS_DIR}/input.wel)
-DRN=$(basename ${INPUTS_DIR}/input.drn)
-RCH=$(basename ${INPUTS_DIR}/input.rch)
-HFB6=$(basename ${INPUTS_DIR}/input.hf6)
-SIP=$(basename ${INPUTS_DIR}/input.sip)
-
 echo "## MODFLOW-2005 name-file" >> $NAM
 echo "LIST    7    LST" >> $NAM
-echo "BAS6    1    $BAS6" >> $NAM
-echo "DIS    10    $DIS" >> $NAM
-echo "BCF6    11   $BCF6" >> $NAM
-echo "OC    22    $OC" >> $NAM
-echo "WEL    12    $WEL" >> $NAM
-echo "DRN    13    $DRN" >> $NAM
-echo "RCH    18    $RCH" >> $NAM
-echo "HFB6    26    $HFB6" >> $NAM
-echo "SIP    19    $SIP" >> $NAM
+
+# Required files
+if [ -f "${INPUTS_DIR}/input.ba6" ]; then
+    BAS6=$(basename ${INPUTS_DIR}/input.ba6)
+    echo "BAS6    1    $BAS6" >> $NAM
+fi
+
+if [ -f "${INPUTS_DIR}/input.dis" ]; then
+    DIS=$(basename ${INPUTS_DIR}/input.dis)
+    echo "DIS    29    $DIS" >> $NAM
+fi
+
+if [ -f "${INPUTS_DIR}/input.oc" ]; then
+    OC=$(basename ${INPUTS_DIR}/input.oc)
+    echo "OC    22    $OC" >> $NAM
+fi
+
+# Flow packages (optional - only one should be used)
+if [ -f "${INPUTS_DIR}/input.lpf" ]; then
+    LPF=$(basename ${INPUTS_DIR}/input.lpf)
+    echo "LPF    11    $LPF" >> $NAM
+elif [ -f "${INPUTS_DIR}/input.bc6" ]; then
+    BCF6=$(basename ${INPUTS_DIR}/input.bc6)
+    echo "BCF6    11    $BCF6" >> $NAM
+fi
+
+# Optional stress packages
+if [ -f "${INPUTS_DIR}/input.zone" ]; then
+    ZONE=$(basename ${INPUTS_DIR}/input.zone)
+    echo "ZONE    40    $ZONE" >> $NAM
+fi
+
+if [ -f "${INPUTS_DIR}/input.wel" ]; then
+    WEL=$(basename ${INPUTS_DIR}/input.wel)
+    echo "WEL    12    $WEL" >> $NAM
+fi
+
+if [ -f "${INPUTS_DIR}/input.drn" ]; then
+    DRN=$(basename ${INPUTS_DIR}/input.drn)
+    echo "DRN    13    $DRN" >> $NAM
+fi
+
+if [ -f "${INPUTS_DIR}/input.riv" ]; then
+    RIV=$(basename ${INPUTS_DIR}/input.riv)
+    echo "RIV    14    $RIV" >> $NAM
+fi
+
+if [ -f "${INPUTS_DIR}/input.evt" ]; then
+    EVT=$(basename ${INPUTS_DIR}/input.evt)
+    echo "EVT    20    $EVT" >> $NAM
+fi
+
+if [ -f "${INPUTS_DIR}/input.ghb" ]; then
+    GHB=$(basename ${INPUTS_DIR}/input.ghb)
+    echo "GHB    17    $GHB" >> $NAM
+fi
+
+if [ -f "${INPUTS_DIR}/input.rch" ]; then
+    RCH=$(basename ${INPUTS_DIR}/input.rch)
+    echo "RCH    18    $RCH" >> $NAM
+fi
+
+if [ -f "${INPUTS_DIR}/input.hf6" ]; then
+    HFB6=$(basename ${INPUTS_DIR}/input.hf6)
+    echo "HFB6    26    $HFB6" >> $NAM
+fi
+
+# Solver packages (optional - only one should be used)
+if [ -f "${INPUTS_DIR}/input.pcg" ]; then
+    PCG=$(basename ${INPUTS_DIR}/input.pcg)
+    echo "PCG    19    $PCG" >> $NAM
+elif [ -f "${INPUTS_DIR}/input.sip" ]; then
+    SIP=$(basename ${INPUTS_DIR}/input.sip)
+    echo "SIP    19    $SIP" >> $NAM
+fi
+
+# Output files
 echo "DATA(BINARY)    50    CBB" >> $NAM
-echo "DATA(BINARY)    51    HDS" >> $NAM
-echo "DATA(BINARY)    52    DDN" >> $NAM
+echo "DATA(BINARY)    30    HDS" >> $NAM
+echo "DATA(BINARY)    31    DDN" >> $NAM
 
 mf2005 $NAM
 
-mv LST ${OUTPUTS_DIR}/LST
-mv CBB ${OUTPUTS_DIR}/CBB
-mv HDS ${OUTPUTS_DIR}/HDS
-mv DDN ${OUTPUTS_DIR}/DDN
+# Move output files if they exist
+if [ -f "LST" ]; then
+    mv LST ${OUTPUTS_DIR}/LST
+fi
+if [ -f "CBB" ]; then
+    mv CBB ${OUTPUTS_DIR}/CBB
+fi
+if [ -f "HDS" ]; then
+    mv HDS ${OUTPUTS_DIR}/HDS
+fi
+if [ -f "DDN" ]; then
+    mv DDN ${OUTPUTS_DIR}/DDN
+fi
 checkExitCode

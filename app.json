@@ -74,12 +74,84 @@
         "targetPath": "input.dis"
       },
       {
+        "name": "lpf",
+        "description": "Layer Property Flow package file",
+        "inputMode": "OPTIONAL",
+        "autoMountLocal": true,
+        "sourceUrl": null,
+        "targetPath": "input.lpf"
+      },
+      {
         "name": "bcf6",
         "description": "Block centered flow package file",
-        "inputMode": "REQUIRED",
+        "inputMode": "OPTIONAL",
         "autoMountLocal": true,
         "sourceUrl": null,
         "targetPath": "input.bc6"
+      },
+      {
+        "name": "zone",
+        "description": "Zone budget file",
+        "inputMode": "OPTIONAL",
+        "autoMountLocal": true,
+        "sourceUrl": null,
+        "targetPath": "input.zone"
+      },
+      {
+        "name": "wel",
+        "description": "Well file",
+        "inputMode": "OPTIONAL",
+        "autoMountLocal": true,
+        "sourceUrl": null,
+        "targetPath": "input.wel"
+      },
+      {
+        "name": "drn",
+        "description": "Drain package file",
+        "inputMode": "OPTIONAL",
+        "autoMountLocal": true,
+        "sourceUrl": null,
+        "targetPath": "input.drn"
+      },
+      {
+        "name": "riv",
+        "description": "River package file",
+        "inputMode": "OPTIONAL",
+        "autoMountLocal": true,
+        "sourceUrl": null,
+        "targetPath": "input.riv"
+      },
+      {
+        "name": "evt",
+        "description": "Evapotranspiration package file",
+        "inputMode": "OPTIONAL",
+        "autoMountLocal": true,
+        "sourceUrl": null,
+        "targetPath": "input.evt"
+      },
+      {
+        "name": "ghb",
+        "description": "General Head Boundary package file",
+        "inputMode": "OPTIONAL",
+        "autoMountLocal": true,
+        "sourceUrl": null,
+        "targetPath": "input.ghb"
+      },
+      {
+        "name": "rch",
+        "description": "Recharge file",
+        "inputMode": "OPTIONAL",
+        "autoMountLocal": true,
+        "sourceUrl": null,
+        "targetPath": "input.rch"
+      },
+      {
+        "name": "hfb6",
+        "description": "Horizontal flow barrier file",
+        "inputMode": "OPTIONAL",
+        "autoMountLocal": true,
+        "sourceUrl": null,
+        "targetPath": "input.hf6"
       },
       {
         "name": "oc",
@@ -90,44 +162,20 @@
         "targetPath": "input.oc"
       },
       {
-        "name": "wel",
-        "description": "Well file",
-        "inputMode": "REQUIRED",
+        "name": "pcg",
+        "description": "Preconditioned Conjugate Gradient package file",
+        "inputMode": "OPTIONAL",
         "autoMountLocal": true,
         "sourceUrl": null,
-        "targetPath": "input.wel"
-      },
-      {
-        "name": "drn",
-        "description": "Drain package file",
-        "inputMode": "REQUIRED",
-        "autoMountLocal": true,
-        "sourceUrl": null,
-        "targetPath": "input.drn"
-      },
-      {
-        "name": "hfb6",
-        "description": "Horizontal flow barrier file",
-        "inputMode": "REQUIRED",
-        "autoMountLocal": true,
-        "sourceUrl": null,
-        "targetPath": "input.hf6"
+        "targetPath": "input.pcg"
       },
       {
         "name": "sip",
         "description": "Strongly Implicit Procedure package file",
-        "inputMode": "REQUIRED",
+        "inputMode": "OPTIONAL",
         "autoMountLocal": true,
         "sourceUrl": null,
         "targetPath": "input.sip"
-      },
-      {
-        "name": "rch",
-        "description": "Recharge file",
-        "inputMode": "REQUIRED",
-        "autoMountLocal": true,
-        "sourceUrl": null,
-        "targetPath": "input.rch"
       }
     ],
     "fileInputArrays": [],
